@@ -1,28 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class CalculatorApp {
-
     public static void main(String[] args) {
-        // Create the main frame
         JFrame frame = new JFrame("Calculator");
         frame.setSize(400, 250); // Adjusted size to better match image
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Use a GridBagLayout for more flexible layout management
         frame.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 10, 5, 10); // Add some padding around components
         gbc.fill = GridBagConstraints.HORIZONTAL; // Make components fill horizontal space
-
         // Font settings
         Font labelFont = new Font("Arial Narrow", Font.BOLD, 18); // Slightly smaller font
         Font textFieldFont = new Font("Arial Narrow", Font.BOLD + Font.ITALIC, 18);
-        Font buttonFont = new Font("Bell MT", Font.BOLD, 12); // Slightly larger font
-
-        // Create labels
+        Font buttonFont = new Font("Bell MT", Font.BOLD, 12); 
         JLabel firstNumLabel = new JLabel("Enter First Number:");
         firstNumLabel.setFont(labelFont);
         firstNumLabel.setForeground(Color.BLUE);
@@ -35,7 +27,6 @@ public class CalculatorApp {
         resultLabel.setFont(labelFont);
         resultLabel.setForeground(Color.BLUE);
 
-        // Create text fields
         JTextField firstNumField = new JTextField();
         firstNumField.setFont(textFieldFont);
         firstNumField.setForeground(Color.GREEN);
@@ -48,8 +39,6 @@ public class CalculatorApp {
         resultField.setFont(textFieldFont);
         resultField.setForeground(Color.GREEN);
         resultField.setEditable(false); // Make result field read-only
-
-        // Create buttons
         JButton addButton = new JButton("Add");
         addButton.setFont(buttonFont);
         addButton.setForeground(Color.GRAY);
@@ -102,7 +91,6 @@ public class CalculatorApp {
         gbc.gridy = 3;
         gbc.gridwidth = 2; // Span two columns
         frame.add(buttonPanel, gbc);
-
         // Add action listeners to the buttons
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -117,7 +105,6 @@ public class CalculatorApp {
                 }
             }
         });
-
         subtractButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -131,7 +118,6 @@ public class CalculatorApp {
                 }
             }
         });
-
         clearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -140,7 +126,6 @@ public class CalculatorApp {
                 resultField.setText("");
             }
         });
-
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,4 +137,3 @@ public class CalculatorApp {
         frame.setVisible(true);
     }
 }
-
